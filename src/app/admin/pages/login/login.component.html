@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <h2 class="text-center">Login</h2>
+
+  <div
+    *ngIf="auth.error$ | async as serverError"
+    class="alert alert-danger"
+    role="alert"
+  >
+    {{ serverError }}
+  </div>
+
+  <div
+    class="form-group"
+    [ngClass]="{ 'invalid': form.get('email').invalid && (form.get('email').touched || form.get('email').dirty) }"
+  >
+    <label for="email">Email</label>
+    <input type="email" id="email" class="form-control" formControlName="email">
+
+    <div *ngIf="form.get('email').invalid && (form.get('email').touched || form.get('email').dirty)">
+      <small *ngIf="form.get('email').errors.required">
+        Please write email...
+      </small>
+      <small *ngIf="form.get('email').errors.email">
+        Please write correct email...
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-group"
+    [ngClass]="{ 'invalid': form.get('password').invalid && (form.get('password').touched || form.get('password').dirty) }"
+  >
+    <label for="password">Password</label>
+    <input type="password" id="password" class="form-control" formControlName="password">
+
+    <div *ngIf="form.get('password').invalid && (form.get('password').touched || form.get('password').dirty)">
+      <small *ngIf="form.get('password').errors.required">
+        Please write password...
+      </small>
+      <small *ngIf="form.get('password').errors.minlength">
+        Password must be longer than {{this.form.get('password').errors.minlength.requiredLength}} characters...
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="form.invalid"
+    class="btn btn-dark"
+  >
+    Login
+  </button>
+</form>

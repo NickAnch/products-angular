@@ -1,0 +1,10 @@
+<ng-container *ngIf="product; else spinnerBlock">
+  <app-product-form
+    [product]="product"
+    (saveProduct)="editProduct($event)"
+  ></app-product-form>
+</ng-container>
+
+<ng-template #spinnerBlock>
+  <app-loading></app-loading>
+</ng-template>

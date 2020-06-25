@@ -1,0 +1,13 @@
+<div class="card my-5">
+  <div class="card-header">
+    {{ product.title }}
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ product.manufacturer }}</h5>
+    <strong>{{ product.cost }} $</strong>
+    <p>{{ product.date | date:'medium' }}</p>
+
+    <a [routerLink]="['/product', product.id]">Open</a>
+  </div>
+</div>

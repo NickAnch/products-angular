@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+// general-variabels
+$danger-color: #dc3545;
+$main-background: #f8f9fa;
+
+// styles
+body {
+  background-color: $main-background;
+}
+
+.form-group {
+  &.invalid {
+    color: $danger-color;
+
+    input {
+      border-color: $danger-color;
+    }
+  }
+}

@@ -17,7 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@core-services": ["src/app/shared/services/index.ts"],
+      "@core-pages": ["src/app/pages/index.ts"],
+      "@admin-services": ["src/app/admin/shared/services/index.ts"],
+      "@admin-pages": ["src/app/admin/pages/index.ts"],
+      "@models" : ["src/app/shared/models/index.ts"],
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Product management</a>
+
+  <ul class="navbar-nav header" *ngIf="auth.isLoggedIn()">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+    </li>
+
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/admin', 'create']">Create</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="logout($event)">Log Out</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet> 
+</div>

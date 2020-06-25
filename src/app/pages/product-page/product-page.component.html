@@ -1,0 +1,19 @@
+<div *ngIf="product$ | async as product; else spinnerBlock" class="post">
+  <div class="header">
+    <h1>{{ product.title }}</h1>
+    <button class="btn btn-outline-info" routerLink="/">Main page</button>
+  </div>
+
+  <div class="info">
+    <h5 class="card-title">{{ product.manufacturer }}</h5>
+    <hr>
+    <strong>{{ product.cost }} $</strong>
+    <p>{{ product.date | date:'medium' }}</p>
+    <hr>
+    <p class="class-text">{{ product.description }}</p>
+  </div>
+</div>
+
+<ng-template #spinnerBlock>
+  <app-loading></app-loading>
+</ng-template>
