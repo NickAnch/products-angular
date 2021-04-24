@@ -23,6 +23,7 @@
       "@core-pages": ["src/app/pages/index.ts"],
       "@admin-services": ["src/app/admin/shared/services/index.ts"],
       "@admin-pages": ["src/app/admin/pages/index.ts"],
+      "@shared-components": ["src/app/shared/components/index.ts"],
       "@models" : ["src/app/shared/models/index.ts"],
     }
   },
