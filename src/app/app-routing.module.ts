@@ -17,12 +17,12 @@ const routes: Routes = [
       { path: 'error', component: ErrorPageComponent }
     ]
   },
-  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/error' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

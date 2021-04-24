@@ -27,7 +27,7 @@ export class CreateComponent implements OnDestroy {
 
   public createProduct(form: FormGroup): void {
     if (form.valid) {
-      const product: Product = form.value;
+      const product: Product = {...form.value};
       product.date = new Date();
 
       this.productService.create(product)
