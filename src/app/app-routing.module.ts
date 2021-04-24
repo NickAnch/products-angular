@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'error', component: ErrorPageComponent }
     ]
   },
-  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/error' },
 ];
 
