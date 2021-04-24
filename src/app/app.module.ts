@@ -5,14 +5,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import {
-  CoreLayoutComponent,
-  ProductComponent,
-} from './shared/components';
+import { CoreLayoutComponent } from '@shared-components';
 import { AuthInterceptor } from '@core-services';
 import {
   HomeComponent,
   ProductPageComponent,
+  ErrorPageComponent,
 } from '@core-pages';
 
 const INTERCEPTOR: Provider = {
@@ -22,17 +20,17 @@ const INTERCEPTOR: Provider = {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoreLayoutComponent,
-    HomeComponent,
-    ProductPageComponent,
-    ProductComponent,
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+  ],
+  declarations: [
+    AppComponent,
+    CoreLayoutComponent,
+    HomeComponent,
+    ErrorPageComponent,
+    ProductPageComponent,
   ],
   providers: [INTERCEPTOR],
   bootstrap: [AppComponent]

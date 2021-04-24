@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminLayoutComponent, ProductFormComponent } from './shared/components';
@@ -13,6 +13,17 @@ import {
   EditComponent
 } from '@admin-pages';
 
+const adminRoutes: Routes =[
+  {
+    path: '', component: AdminLayoutComponent, children: [
+      { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
+      { path: 'product/:id/edit', component: EditComponent, canActivate: [AuthGuard] },
+    ]
+  },
+];
 
 @NgModule({
   declarations: [
@@ -28,17 +39,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    RouterModule.forChild([
-      {
-        path: '', component: AdminLayoutComponent, children: [
-          { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
-          { path: 'login', component: LoginComponent },
-          { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-          { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
-          { path: 'product/:id/edit', component: EditComponent, canActivate: [AuthGuard] }
-        ]
-      }
-    ])
+    RouterModule.forChild(adminRoutes),
   ],
   exports: [
     RouterModule,
