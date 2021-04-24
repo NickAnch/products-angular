@@ -10,7 +10,7 @@ import { Product } from '@models';
 })
 export class ProductFormComponent implements OnInit {
   @Input() product: Product = null;
-  @Output() saveProduct = new EventEmitter<Product>();
+  @Output() saveProduct = new EventEmitter<FormGroup>();
 
   public form: FormGroup;
 
