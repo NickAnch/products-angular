@@ -24,6 +24,7 @@
       "@admin-services": ["src/app/admin/shared/services/index.ts"],
       "@admin-pages": ["src/app/admin/pages/index.ts"],
       "@shared-components": ["src/app/shared/components/index.ts"],
+      "@shared-pipes": ["src/app/shared/pipes/index.ts"],
       "@models" : ["src/app/shared/models/index.ts"],
     }
   },

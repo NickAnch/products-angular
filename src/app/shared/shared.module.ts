@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoadingComponent, ProductComponent } from '@shared-components';
+import { SearchPipe } from '@shared-pipes';
 
 @NgModule({
   imports: [
@@ -14,10 +15,12 @@ import { LoadingComponent, ProductComponent } from '@shared-components';
     HttpClientModule,
     LoadingComponent,
     ProductComponent,
+    SearchPipe,
   ],
   declarations: [
     LoadingComponent,
     ProductComponent,
+    SearchPipe,
   ]
 })
 export class SharedModule { }

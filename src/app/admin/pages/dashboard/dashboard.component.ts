@@ -13,6 +13,7 @@ import { ProductService } from '@core-services';
 export class DashboardComponent implements OnInit, OnDestroy {
   public products: Product[] = [];
   private destroy$ = new Subject();
+  public filter = '';
 
   constructor(
     private productService: ProductService,
