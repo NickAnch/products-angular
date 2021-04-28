@@ -10,6 +10,7 @@ import { ProductService } from '@core-services';
 })
 export class HomeComponent {
   public products$: Observable<Product[]>;
+  public filter = '';
 
   constructor(
     private productService: ProductService,

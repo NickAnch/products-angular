@@ -1,8 +1,19 @@
+<input
+  type="text"
+  class="form-control mt-5"
+  placeholder="Type to find a product..."
+  [(ngModel)]="filter"
+/>
+
 <div *ngIf="products$ | async as products; else spinnerBlock">
   <app-product
-    *ngFor="let product of products"
+    *ngFor="let product of products | search:filter"
     [product]="product"
   ></app-product>
+
+  <ng-container *ngIf="!products.length">
+    No products.
+  </ng-container>
 </div>
 
 <ng-template #spinnerBlock>
